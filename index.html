@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Page</title>
+    <style>
+        @font-face {
+            font-family: 'Pusab';
+            src: url('Pusab.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, rgb(137, 0, 216), rgb(51, 0, 80));
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 1200px; /* Increased width */
+            position: relative;
+        }
+
+        .container.hidden {
+            display: none;
+        }
+
+        .header, .description {
+            font-family: 'Pusab', Arial, sans-serif;
+            background: linear-gradient(to right, #f5b942, #c6902e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+        }
+
+        .header {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center; /* Centered initially */
+        }
+
+        .description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center; /* Centered initially */
+        }
+
+        .button img {
+            cursor: pointer;
+            width: 100%; /* Full width */
+            height: auto;
+        }
+
+        .video-container {
+            display: none;
+            text-align: left; /* Left align when video is displayed */
+        }
+
+        .video-container video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .video-container .header, .video-container .description {
+            text-align: left; /* Left align text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContent">
+        <div class="header" id="header">1.6 Trailer!</div>
+        <div class="description" id="description">Watch the trailer here:</div>
+        <div class="button">
+            <img src="thumb.png" alt="Click to play video" id="playButton">
+        </div>
+    </div>
+    <div class="container video-container" id="videoContainer">
+        <video controls>
+            <source src="trailer.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="header" id="videoHeader">Piggy: The Rework Build Mode 1.6 Trailer</div>
+        <div class="description" id="videoDescription">Trailer & Game made by @ultrajuni on Discord!</div>
+    </div>
+    <script>
+        document.getElementById("playButton").addEventListener("click", function() {
+            document.getElementById("mainContent").classList.add("hidden");
+            document.getElementById("videoContainer").style.display = "block";
+        });
+    </script>
+</body>
+</html>
